@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+<table class="table table-bordered table-hover">
+        <thead>
+        <br>
+            <a class="btn btn-dark float-right" style="margin-right:16px" href="{% url 'logbook:add_airport' %}" role="button">Add</a>
+        <br>
+        <br>
+            <tr>
+                <th>ICAO Code</th>
+                <th>IATA Code</th>
+                <th>Full Name</th>
+                <th>Country</th>
+                <th>Edit Entry</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for entries in all_airports %}
+                <tr>
+                    <td>{{entries.ICAO_code}}</td>
+                    <td>{{entries.IATA_code}}</td>
+                    <td>{{entries.name}}</td>
+                    <td>{{entries.country}}</td>
+                    <td><a class="btn btn-dark" href="{% url 'logbook:edit_airport' entries.id %}" role="button">Edit</a></td>
+                </tr>        
+            {% endfor %}
+
+        </tbody>
+    </table>   
+{% endblock %}

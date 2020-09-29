@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<table class="table table-bordered table-hover">
+        <thead>
+        <br>
+            <a class="btn btn-dark float-right" style="margin-right:16px" href="{% url 'logbook:add_aircraft' %}" role="button">Add</a>
+        <br>
+        <br>   
+            <tr>
+                <th>Aircraft Registration</th>
+                <th>Aircraft Model</th>
+                <th>Remarks</th>
+                <th>Edit Entry</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for entries in all_planes %}
+                <tr>
+                    <td>{{entries.aircraft_id}}</td>
+                    <td>{{entries.aircraft_type}}</td>
+                    <td>{{entries.notes}}</td>
+                    <td><a class="btn btn-dark" href="{% url 'logbook:edit_aircraft' entries.id %}" role="button">Edit</a></td>
+                </tr>        
+            {% endfor %}
+        </tbody>
+</table>    
+{% endblock %}

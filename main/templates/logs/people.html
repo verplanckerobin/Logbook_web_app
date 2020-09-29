@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+<table class="table table-bordered table-hover">
+        <thead>
+        <br>
+            <a class="btn btn-dark float-right" style="margin-right:16px" href="{% url 'logbook:add_people' %}" role="button">Add</a>
+        <br>
+        <br>
+            <tr>
+                <th>Full Name</th>
+                <th>Company Function</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Remarks</th>
+                <th>Edit Entry</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for entries in all_people %}
+                <tr>
+                    <td>{{entries.name}}</td>
+                    <td>{{entries.company_function}}</td>
+                    <td>{{entries.phone}}</td>
+                    <td>{{entries.email}}</td>
+                    <td>{{entries.remarks}}</td>
+                    <td><a class="btn btn-dark" href="{% url 'logbook:edit_people' entries.id %}" role="button">Edit</a></td>
+                </tr>        
+            {% endfor %}
+
+        </tbody>
+    </table>   
+{% endblock %}

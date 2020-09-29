@@ -1,0 +1,37 @@
+{% extends 'base.html' %} 
+{% block content %}
+<div style="margin-left:16px">
+    <dl>
+    <br>
+        <dt>Date</dt>
+        <dd>{{ entry.date }}</dd>
+    <br>
+        <dt>Departure</dt>
+        <dd>{{ entry.departure }}</dd>
+    <br>
+        <dt>Time</dt>
+        <dd>{{ entry.block_out }}</dd>
+    <br>
+        <dt>Arrival</dt>
+        <dd>{{ entry.arrival }}</dd>
+    <br>
+        <dt>Time</dt>
+        <dd>{{ entry.block_in }}</dd>
+    <br>
+        <dt>Aircraft</dt>
+        <dd>{{ entry.aircraft }}</dd>
+    <br>
+        <dt>PIC</dt>
+        <dd>{{ entry.pic }}</dd>
+    <br>
+        <dt>Landing</dt>
+        <dd>{{ entry.landings }}</dd>
+    <br>
+        <dt>Take-off</dt>
+        <dd>{{ entry.take_off }}</dd>
+    <br>
+        <dt>Remarks</dt>
+        <dd>{{ entry.remarks }}</dd>
+    </dl>
+</div>
+{% endblock  %}

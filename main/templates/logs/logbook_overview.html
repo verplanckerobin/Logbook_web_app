@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <table class="table table-bordered table-hover">
+        <thead>
+            <br>
+            <a class="btn btn-dark float-right" style="margin-right:16px" href="{% url 'logbook:add_log' %}" role="button">Add</a>
+            <br>
+            <br>
+            <tr>
+                <th>Date</th>
+                <th>Departure</th>
+                <th>Arrival</th>
+                <th>Aircraft</th>
+                <th>Edit Entry</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for entries in logs %}
+                <tr>
+                    <td>
+                        <a href="{% url 'logbook:logbook_details' entries.id %}">{{entries.date}}</a>
+                    </td>
+                    <td>{{entries.departure}}</td>
+                    <td>{{entries.arrival}}</td>
+                    <td>{{entries.aircraft}}</td>
+                    <td><a class="btn btn-dark" href="{% url 'logbook:edit_log' entries.id %}" role="button">Edit</a></td>
+                </tr>        
+            {% endfor %}
+
+        </tbody>
+    </table>   
+{% endblock  %}
